@@ -9,9 +9,11 @@ class Main {
 		ArrayList<String> arrayList = new ArrayList<>();
 		FileReader fr = new FileReader("names.txt");
 		Scanner fileScanner = new Scanner(fr);
-
-    Menu(fileScanner);
+    Scanner input = new Scanner(System.in);
     
+    Menu(input, fileScanner);
+
+    input.close();
     fileScanner.close();
   }
 
@@ -33,8 +35,7 @@ class Main {
     }
   }
   
-  static void Menu(Scanner fileScanner){
-    Scanner input = new Scanner(System.in);
+  static void Menu(Scanner input, Scanner fileScanner){
   
     System.out.println("Press 1 to learn about salary.");
     System.out.println("Press 2 to learn about the job.");
@@ -46,26 +47,25 @@ class Main {
     switch(choice){
       case 1:
         outputSalary();
-        Menu(fileScanner);
+        Menu(input, fileScanner);
         break;
     
       case 2:
         outputJob();
-        Menu(fileScanner);
+        Menu(input, fileScanner);
         break;
     
       case 3:
         outputDemand();
-        Menu(fileScanner);
+        Menu(input, fileScanner);
         break;
     
       case 4:
         outputStudents(fileScanner);
-        Menu(fileScanner);
+        Menu(input, fileScanner);
         break;
     
       case 5:
-        input.close();
         return;
     }
   }
