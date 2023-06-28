@@ -30,6 +30,7 @@ class Main {
   }
   
   static void outputStudents(Scanner fileScanner){
+    System.out.println("Current Students:");
     while (fileScanner.hasNext()){
       System.out.println(fileScanner.nextLine());
     }
